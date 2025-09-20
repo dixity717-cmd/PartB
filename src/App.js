@@ -2,26 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { CSVLink } from 'react-csv';
-
-// Sample data (replace with fetch from CSV/JSON/API as needed)
-const sampleData = [
-  {
-    month: "2025-03",
-    platform: "Facebook",
-    campaign_name: "Traffic",
-    spend: 165000,
-    impressions: 4780000,
-    reach: 2800000,
-    clicks: 96540,
-    link_clicks: 9310,
-    video_views: 34950,
-    leads: 11400,
-    profile_visits: 828,
-    followers_gained: 19994,
-    heat_zone_focus: "246 Pan-India"
-  },
-  // ...add more rows as needed...
-];
+import sampleData from './sampleData.json'; // <-- Import JSON data
 
 function App() {
   const [data, setData] = useState([]);
@@ -32,7 +13,7 @@ function App() {
   });
 
   useEffect(() => {
-    // Simulate data load
+    // Load data from imported JSON
     setData(sampleData);
   }, []);
 
@@ -114,6 +95,7 @@ function App() {
   return (
     <div className="dashboard">
       <h1>Meta MoM Performance Dashboard</h1>
+      <p style={{textAlign: "center"}}><b>Made by Gagan Arora</b></p>
       {/* Filters */}
       <div className="filters">
         <label>
